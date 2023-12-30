@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import ItemButton from '@/components/ItemButton.vue'
+</script>
 
 <template>
   <div>

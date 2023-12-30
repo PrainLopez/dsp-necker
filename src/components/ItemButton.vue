@@ -24,9 +24,7 @@ const props = defineProps({
 </template>
 
 <style scoped>
-button,
-button:disabled,
-button:disabled:hover {
+button {
   height: 60px;
   width: 60px;
   background-color: #364450;
@@ -35,11 +33,11 @@ button:disabled:hover {
   margin: 1px;
 }
 
-button:hover {
+button:enabled:hover {
   background-color: #326b77;
 }
 
-button:active {
+button:enabled:active {
   background-color: #326b77;
   outline: 2px solid #a5f1ff;
   border-radius: 2px;
