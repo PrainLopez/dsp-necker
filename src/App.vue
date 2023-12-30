@@ -1,6 +1,6 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import ItemButton from './components/ItemButton.vue'
+import SelectorView from './views/SelectorView.vue'
 </script>
 
 <template>
@@ -12,6 +12,8 @@ import ItemButton from './components/ItemButton.vue'
       </nav>
     </div>
   </header>
+
+  <SelectorView />
 
   <RouterView />
 </template>

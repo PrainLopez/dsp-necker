@@ -1,7 +1,13 @@
 <script setup></script>
 
 <template>
-  <div></div>
+  <div>
+    <ItemButton img="植物燃料.webp" />
+    <ItemButton img="制造台 Mk.III.webp" />
+    <ItemButton />
+    <ItemButton />
+    <ItemButton img="蓄电器（满）.webp" />
+  </div>
 </template>
 
 <style lang="scss" scoped></style>
