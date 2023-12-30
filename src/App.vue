@@ -1,5 +1,6 @@
 <script setup>
 import { RouterView } from 'vue-router'
+import ItemButton from './components/ItemButton.vue'
 </script>
 
 <template>
@@ -28,9 +29,9 @@ header {
 
 nav {
   width: 100%;
-  font-size: 12px;
+  font-size: 24px;
   text-align: center;
-  margin-top: 2rem;
+  margin: 1rem 0rem;
 }
 
 nav a.router-link-exact-active {
