@@ -27,24 +27,23 @@ const props = defineProps({
 button {
   height: 60px;
   width: 60px;
-  background-color: #364450;
+  background-color: var(--ItemButton-color);
   padding: 5px;
-  border: 0px;
+  border: none;
   margin: 1px;
 }
 
-button:enabled:hover {
-  background-color: #326b77;
+button:enabled:hover,
+button:enabled:active {
+  background: linear-gradient(
+    -45deg,
+    var(--ItemButton-color) 5px,
+    var(--ItemButton-color-active) 0
+  );
 }
 
 button:enabled:active {
-  background-color: #326b77;
-  outline: 2px solid #a5f1ff;
-  border-radius: 2px;
-}
-
-div.placeholder {
-  width: 50px;
-  height: 50px;
+  outline: 2px solid var(--ItemButton-color-border);
+  border-radius: 1px;
 }
 </style>
