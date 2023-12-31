@@ -23,8 +23,8 @@ test('prop.width', async () => {
   expect(wrapper.find('img').attributes('width')).toBe('100px')
 })
 
-test('button disabled and img is not rendered when props.img empty', async () => {
+test('button disabled and img not rendered when props.img empty', async () => {
   const wrapper = mount(ItemButtonVue, {})
-  expect(wrapper.find('button:enabled').exists()).toBe('false')
-  expect(wrapper.find('img').exists()).toBe('false')
+  expect(wrapper.find('img').exists()).toBe(false)
+  expect(wrapper.find('button:disabled').exists()).toBe(true)
 })
