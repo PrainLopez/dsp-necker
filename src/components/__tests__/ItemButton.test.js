@@ -28,3 +28,13 @@ test('button disabled and img not rendered when props.img empty', async () => {
   expect(wrapper.find('img').exists()).toBe(false)
   expect(wrapper.find('button:disabled').exists()).toBe(true)
 })
+
+test('button onclick', async () => {
+  const wrapper = mount(ItemButtonVue, {
+    props: {
+      img: '爆破单元.webp'
+    }
+  })
+  await wrapper.find('button').trigger('click')
+  expect(wrapper.emitted().click).toBeTruthy()
+})
