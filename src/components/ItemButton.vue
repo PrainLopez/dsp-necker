@@ -12,10 +12,10 @@ const props = defineProps({
 </script>
 
 <template>
-  <button :disabled="!img">
+  <button :disabled="!img" :title="img">
     <img
       v-if="img"
-      :src="'/dsp-icon/' + img"
+      :src="'/dsp-icon/' + img + '.webp'"
       :alt="img.split('.').slice(0, -1).join('.')"
       :width="width"
       :height="width"
