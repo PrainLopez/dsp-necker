@@ -4,7 +4,7 @@ const data = ref('1')
 
 <template>
   <div>
-    <textarea readonly="true" v-model="data">Input grid data</textarea>
+    <textarea readonly="true" v-model="data.value">Input grid data</textarea>
     <button>Convert</button>
     <div>
       <pre></pre>
