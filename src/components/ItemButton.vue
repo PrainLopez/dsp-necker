@@ -15,8 +15,8 @@ const props = defineProps({
   <button :disabled="!img" :title="img">
     <img
       v-if="img"
-      :src="'/dsp-icon/' + img + '.webp'"
-      :alt="img.split('.').slice(0, -1).join('.')"
+      :src="`/dsp-icon/${img}.webp`"
+      :alt="img"
       :width="width"
       :height="width"
     />

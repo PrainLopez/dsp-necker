@@ -8,7 +8,7 @@ import SelectorView from './views/SelectorView.vue'
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/utility">Utility</RouterLink>
       </nav>
     </div>
   </header>
