@@ -6,7 +6,7 @@ const props = defineProps({
   },
   width: {
     type: String,
-    default: '50px'
+    default: '40px'
   }
 })
 </script>
@@ -25,8 +25,8 @@ const props = defineProps({
 
 <style scoped>
 button {
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   background-color: var(--ItemButton-color);
   padding: 5px;
   border: none;
