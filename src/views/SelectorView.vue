@@ -1,16 +1,23 @@
 <script setup>
 import ItemButton from '@/components/ItemButton.vue'
+import gridData from '@/assets/SelectorLayout.data'
 </script>
 
 <template>
-  <div>
-    <ItemButton img="植物燃料" />
-    <ItemButton img="制造台 Mk.III" />
-    <ItemButton img="处理器" />
-    <ItemButton />
-    <ItemButton />
-    <ItemButton img="蓄电器（满）" />
+  <div class="selectorBox">
+    <div v-for="(row, rowIndex) in gridData.item" :key="rowIndex">
+      <ItemButton
+        v-for="(grid, gridIndex) in row"
+        :key="gridIndex"
+        :img="grid"
+      />
+    </div>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style scoped>
+nav.selectorBox {
+  min-width: 850px;
+  min-height: 500px;
+}
+</style>
