@@ -1,6 +1,6 @@
 <script setup>
 import ItemButton from '@/components/ItemButton.vue'
-import gridData from '@/assets/SelectorLayout.data'
+import gridData from '@/assets/SelectorLayout'
 </script>
 
 <template>
