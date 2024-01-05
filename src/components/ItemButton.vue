@@ -7,12 +7,16 @@ const props = defineProps({
   width: {
     type: String,
     default: '40px'
+  },
+  action: {
+    type: Function,
+    required: false
   }
 })
 </script>
 
 <template>
-  <button :disabled="!img" :title="img">
+  <button :disabled="!img" :title="img" @click="action(img)">
     <img
       v-if="img"
       :src="`/dsp-icon/${img}.webp`"
