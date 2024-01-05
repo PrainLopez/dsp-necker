@@ -49,5 +49,10 @@ button:enabled:active {
 button:enabled:active {
   outline: 2px solid var(--ItemButton-color-border);
   border-radius: 1px;
+  background: linear-gradient(
+    -45deg,
+    var(--ItemButton-color-border) 5px,
+    var(--ItemButton-color-active) 0
+  );
 }
 </style>

@@ -4,8 +4,12 @@ import gridData from '@/assets/SelectorLayout'
 </script>
 
 <template>
-  <div class="selectorBox">
-    <div v-for="(row, rowIndex) in gridData.item" :key="rowIndex">
+  <div class="selectorCanvas">
+    <div
+      class="selectorRow"
+      v-for="(row, rowIndex) in gridData.item"
+      :key="rowIndex"
+    >
       <ItemButton
         v-for="(grid, gridIndex) in row"
         :key="gridIndex"
@@ -16,8 +20,12 @@ import gridData from '@/assets/SelectorLayout'
 </template>
 
 <style scoped>
-nav.selectorBox {
-  min-width: 850px;
-  min-height: 500px;
+div.selectorRow {
+  width: calc(14 * 52px);
+}
+
+div.selectorCanvas {
+  width: calc(14 * 52px);
+  height: calc(9 * 52px);
 }
 </style>
