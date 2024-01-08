@@ -1,6 +1,7 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import SelectorView from './views/SelectorView.vue'
+import PanelView from './views/PanelView.vue'
 </script>
 
 <template>
@@ -8,7 +9,7 @@ import SelectorView from './views/SelectorView.vue'
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/utility">Utility</RouterLink>
+        <RouterLink to="/panel">Panel</RouterLink>
       </nav>
     </div>
   </header>

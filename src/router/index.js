@@ -9,9 +9,9 @@ const router = createRouter({
       component: () => import('../views/NeckerView.vue')
     },
     {
-      path: '/selector',
-      name: 'selector',
-      component: () => import('../views/SelectorView.vue')
+      path: '/panel',
+      name: 'panel',
+      component: () => import('../views/PanelView.vue')
     }
   ]
 })
