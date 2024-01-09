@@ -16,7 +16,13 @@ const props = defineProps({
 </script>
 
 <template>
-  <button :disabled="!img" :title="img" @click="action(img)">
+  <button
+    :disabled="!img"
+    :title="img"
+    @click="action(img)"
+    :width="width + 10"
+    :height="height + 10"
+  >
     <img
       v-if="img"
       :src="`src/assets/dsp-icon/${img}.webp`"
@@ -29,8 +35,6 @@ const props = defineProps({
 
 <style scoped>
 button {
-  height: 50px;
-  width: 50px;
   background-color: #364450;
   padding: 5px;
   border: none;

@@ -22,7 +22,7 @@ const {
 
 <template>
   <div>
-    <ItemButton width="50" , :img="selectedItem" />
+    <ItemButton :img="selectedItem" />
   </div>
 </template>
 
