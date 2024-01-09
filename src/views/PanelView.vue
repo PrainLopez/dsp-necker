@@ -5,11 +5,16 @@ import { recipe } from '@/assets/recipeData/vanilla/Recipes'
 import { storeToRefs } from 'pinia'
 
 const panelStore = usePanelStore()
-panelStore.setItem('宇宙矩阵')
-const item = storeToRefs(panelStore.item)
-panelStore.setUnit('设备数')
-const unit = storeToRefs(panelStore.unit)
-const schemaOptions = computed(recipe)
+
+const {
+  selectedItem,
+  selectedSchema,
+  selectedUnit,
+  inputAmount,
+  facilitySelection,
+  proliferatorAction,
+  proliferatorSelection
+} = storeToRefs(panelStore)
 </script>
 
 <template>

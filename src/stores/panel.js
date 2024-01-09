@@ -1,14 +1,15 @@
 import { defineStore } from 'pinia'
 
 export const usePanelStore = defineStore('panel', () => {
-  const selectedItem = ref('')
+  const selectedItem = ref('宇宙矩阵')
   const selectedSchema = ref('')
-  const unitSelection = ref('')
+  const selectedUnit = ref('')
   const inputAmount = ref(0)
-  const facilityClass = ref('')
   const facilitySelection = ref('')
   const proliferatorAction = ref('')
   const proliferatorSelection = ref('')
+
+  const facilityClass = computed(() => {})
 
   function setSelectedItem(value) {
     selectedItem.value = value
@@ -19,15 +20,11 @@ export const usePanelStore = defineStore('panel', () => {
   }
 
   function setUnitSelection(value) {
-    unitSelection.value = value
+    selectedUnit.value = value
   }
 
   function setInputAmount(value) {
     inputAmount.value = value
-  }
-
-  function setFacilityClass(value) {
-    facilityClass.value = value
   }
 
   function setFacilitySelection(value) {
@@ -46,7 +43,7 @@ export const usePanelStore = defineStore('panel', () => {
     // state
     selectedItem,
     selectedSchema,
-    unitSelection,
+    unitSelection: selectedUnit,
     inputAmount,
     facilityClass,
     facilitySelection,
