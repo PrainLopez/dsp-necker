@@ -20,9 +20,6 @@ const {
 <template>
   <div>
     <h1>Panel</h1>
-    <p>{{ item }}</p>
-    <p>{{ unit }}</p>
-    <p>{{ schemaOptions }}</p>
   </div>
 </template>
 

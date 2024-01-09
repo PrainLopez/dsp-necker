@@ -8,11 +8,10 @@ import PanelView from './views/PanelView.vue'
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Selector</RouterLink>
-        <RouterLink to="/panel">Panel</RouterLink>
+        <RouterLink to="/selector">Selector</RouterLink>
+        <RouterLink to="/">Panel</RouterLink>
       </nav>
     </div>
-    <SelectorView />
   </header>
   <div>
     <RouterView />

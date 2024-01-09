@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { recipes } from '@/assets/recipeData/vanilla/Recipes.json'
 
 export const usePanelStore = defineStore('panel', () => {
   const selectedItem = ref('宇宙矩阵')
@@ -9,7 +10,11 @@ export const usePanelStore = defineStore('panel', () => {
   const proliferatorAction = ref('')
   const proliferatorSelection = ref('')
 
-  const facilityClass = computed(() => {})
+  const appliedSchemas = computed(() =>
+    recipes.recipe.filter((it) =>
+      Object.keys(it.产物).includes(selectedItem.value)
+    )
+  )
 
   function setSelectedItem(value) {
     selectedItem.value = value
