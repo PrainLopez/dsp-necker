@@ -10,7 +10,9 @@ test('render the image correctly when given image name', async () => {
     }
   })
   expect(wrapper.find('img').exists()).toBe(true)
-  expect(wrapper.find('img').attributes('src')).toBe('/dsp-icon/爆破单元.webp')
+  expect(wrapper.find('img').attributes('src')).toBe(
+    'src/assets/dsp-icon/爆破单元.webp'
+  )
   expect(wrapper.find('img').attributes('alt')).toBe('爆破单元')
   expect(wrapper.find('img').attributes('width')).toBe('40px')
 })
