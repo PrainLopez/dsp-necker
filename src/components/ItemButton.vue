@@ -4,37 +4,35 @@ const props = defineProps({
     type: String,
     required: false
   },
-  width: {
-    type: String,
-    default: '40px'
-  },
   action: {
     type: Function,
     required: false
   }
 })
+
+const excecute = {
+  if(action) {
+    return action(img)
+  }
+}
 </script>
 
 <template>
-  <button
-    :disabled="!img"
-    :title="img"
-    @click="action(img)"
-    :width="width + 10"
-    :height="height + 10"
-  >
+  <button :disabled="!img" :title="img" @click="excecute">
     <img
       v-if="img"
       :src="`src/assets/dsp-icon/${img}.webp`"
       :alt="img"
-      :width="width"
-      :height="width"
+      width="40px"
+      height="40px"
     />
   </button>
 </template>
 
 <style scoped>
 button {
+  width: 50px;
+  height: 50px;
   background-color: #364450;
   padding: 5px;
   border: none;
