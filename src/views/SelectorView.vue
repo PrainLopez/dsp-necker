@@ -1,6 +1,9 @@
 <script setup>
 import ItemButton from '@/components/ItemButton.vue'
 import gridData from '@/assets/SelectorLayout'
+import { usePanelStore } from '@/stores/panel'
+
+const panelStore = usePanelStore()
 </script>
 
 <template>
@@ -14,6 +17,7 @@ import gridData from '@/assets/SelectorLayout'
         v-for="(grid, gridIndex) in row"
         :key="gridIndex"
         :img="grid"
+        :action="panelStore.selectItem"
       />
     </div>
   </div>

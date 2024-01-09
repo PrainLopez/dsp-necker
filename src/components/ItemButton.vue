@@ -6,12 +6,12 @@ const props = defineProps({
   },
   action: {
     type: Function,
-    required: false
+    required: true
   }
 })
 
 const excecute = {
-  if(action) {
+  if(img) {
     return action(img)
   }
 }
