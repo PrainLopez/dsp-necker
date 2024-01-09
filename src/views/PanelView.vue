@@ -1,25 +1,28 @@
 <script setup>
 import { usePanelStore } from '@/stores/panel'
-import { computed } from 'vue'
-import { recipe } from '@/assets/recipeData/vanilla/Recipes'
+import { ref, computed } from 'vue'
 import { storeToRefs } from 'pinia'
+import ItemButton from '@/components/ItemButton.vue'
 
 const panelStore = usePanelStore()
 
 const {
+  // states
   selectedItem,
   selectedSchema,
   selectedUnit,
   inputAmount,
   facilitySelection,
   proliferatorAction,
-  proliferatorSelection
+  proliferatorSelection,
+  // getters
+  appliedSchemas
 } = storeToRefs(panelStore)
 </script>
 
 <template>
   <div>
-    <h1>Panel</h1>
+    <ItemButton width="50" , :img="selectedItem" />
   </div>
 </template>
 

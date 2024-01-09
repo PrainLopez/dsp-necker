@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
-import { recipes } from '@/assets/recipeData/vanilla/Recipes.json'
+import recipes from '@/assets/recipeData/vanilla/Recipes.json'
+import { ref, computed } from 'vue'
 
 export const usePanelStore = defineStore('panel', () => {
   const selectedItem = ref('宇宙矩阵')
@@ -45,21 +46,21 @@ export const usePanelStore = defineStore('panel', () => {
   }
 
   return {
-    // state
+    // states
     selectedItem,
     selectedSchema,
-    unitSelection: selectedUnit,
+    selectedUnit,
     inputAmount,
-    facilityClass,
     facilitySelection,
     proliferatorAction,
     proliferatorSelection,
-    // action
+    // getters
+    appliedSchemas,
+    // actions
     setSelectedItem,
     setSelectedSchema,
     setUnitSelection,
     setInputAmount,
-    setFacilityClass,
     setFacilitySelection,
     setProliferatorAction,
     setProliferatorSelection
