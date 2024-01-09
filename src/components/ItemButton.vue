@@ -19,7 +19,7 @@ const props = defineProps({
   <button :disabled="!img" :title="img" @click="action(img)">
     <img
       v-if="img"
-      :src="`/dsp-icon/${img}.webp`"
+      :src="`src/assets/dsp-icon/${img}.webp`"
       :alt="img"
       :width="width"
       :height="width"
@@ -31,7 +31,7 @@ const props = defineProps({
 button {
   height: 50px;
   width: 50px;
-  background-color: var(--ItemButton-color);
+  background-color: #364450;
   padding: 5px;
   border: none;
   margin: 1px;
@@ -39,20 +39,12 @@ button {
 
 button:enabled:hover,
 button:enabled:active {
-  background: linear-gradient(
-    -45deg,
-    var(--ItemButton-color) 5px,
-    var(--ItemButton-color-active) 0
-  );
+  background: linear-gradient(-45deg, #364450 5px, #326b77 0);
 }
 
 button:enabled:active {
-  outline: 2px solid var(--ItemButton-color-border);
+  outline: 2px solid #a5f1ff;
   border-radius: 1px;
-  background: linear-gradient(
-    -45deg,
-    var(--ItemButton-color-border) 5px,
-    var(--ItemButton-color-active) 0
-  );
+  background: linear-gradient(-45deg, #a5f1ff 5px, #326b77 0);
 }
 </style>
