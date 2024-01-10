@@ -3,6 +3,7 @@ import { usePanelStore } from '@/stores/panel'
 import { ref, computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import ItemButton from '@/components/ItemButton.vue'
+import ItemRadioSelect from '@/components/ItemRadioSelect.vue'
 
 const panelStore = usePanelStore()
 
@@ -23,6 +24,9 @@ const {
 <template>
   <div>
     <ItemButton :img="selectedItem" />
+  </div>
+  <div>
+    <ItemRadioSelect :list="appliedSchemas" />
   </div>
 </template>
 
