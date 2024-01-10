@@ -27,12 +27,7 @@ watch(
 
 <template>
   <div>
-    <ItemButton
-      v-for="item of list"
-      :key="item.id"
-      :img="item"
-      :action="action"
-    />
+    <ItemButton v-for="item of list" :key="item.id" :img="item" />
   </div>
 </template>
 

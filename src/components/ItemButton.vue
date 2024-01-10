@@ -3,22 +3,18 @@ const props = defineProps({
   img: {
     type: String,
     required: false
-  },
-  action: {
-    type: Function,
-    required: true
   }
 })
 
-const excecute = {
-  if(img) {
-    return action(img)
-  }
+const emit = defineEmits(['ItemButton-active'])
+
+function clickHandler() {
+  emit('ItemButton-active', props.img)
 }
 </script>
 
 <template>
-  <button :disabled="!img" :title="img" @click="excecute">
+  <button :disabled="!img" :title="img ?? ''" @click="clickHandler">
     <img
       v-if="img"
       :src="`src/assets/dsp-icon/${img}.webp`"
