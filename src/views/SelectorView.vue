@@ -14,10 +14,12 @@ const panelStore = usePanelStore()
       :key="rowIndex"
     >
       <ItemButton
-        v-for="(grid, gridIndex) in row"
-        :key="gridIndex"
+        v-for="grid in row"
+        :key="grid.id"
         :img="grid"
-        :action="panelStore.selectItem"
+        @item-button-active="
+          (item) => (panelStore.selectedItem = item)
+        "
       />
     </div>
   </div>

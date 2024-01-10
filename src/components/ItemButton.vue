@@ -6,10 +6,10 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['ItemButton-active'])
+const emit = defineEmits(['item-button-active'])
 
 function clickHandler() {
-  emit('ItemButton-active', props.img)
+  emit('item-button-active', props.img)
 }
 </script>
 

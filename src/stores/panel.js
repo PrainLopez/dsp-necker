@@ -17,34 +17,6 @@ export const usePanelStore = defineStore('panel', () => {
     )
   )
 
-  function setSelectedItem(value) {
-    selectedItem.value = value
-  }
-
-  function setSelectedSchema(value) {
-    selectedSchema.value = value
-  }
-
-  function setUnitSelection(value) {
-    selectedUnit.value = value
-  }
-
-  function setInputAmount(value) {
-    inputAmount.value = value
-  }
-
-  function setFacilitySelection(value) {
-    facilitySelection.value = value
-  }
-
-  function setProliferatorAction(value) {
-    proliferatorAction.value = value
-  }
-
-  function setProliferatorSelection(value) {
-    proliferatorSelection.value = value
-  }
-
   return {
     // states
     selectedItem,
@@ -55,14 +27,7 @@ export const usePanelStore = defineStore('panel', () => {
     proliferatorAction,
     proliferatorSelection,
     // getters
-    appliedSchemas,
+    appliedSchemas
     // actions
-    setSelectedItem,
-    setSelectedSchema,
-    setUnitSelection,
-    setInputAmount,
-    setFacilitySelection,
-    setProliferatorAction,
-    setProliferatorSelection
   }
 })
