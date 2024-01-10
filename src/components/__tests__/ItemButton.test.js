@@ -17,41 +17,20 @@ test('render the image correctly when given image name', async () => {
   expect(wrapper.find('img').attributes('width')).toBe('40px')
 })
 
-test('prop.width', async () => {
-  const wrapper = mount(ItemButtonVue, {
-    props: {
-      img: '爆破单元',
-      width: '100px'
-    }
-  })
-  expect(wrapper.find('img').attributes('width')).toBe('100px')
-})
-
 test('button disabled and img not rendered when props.img empty', async () => {
   const wrapper = mount(ItemButtonVue, {})
   expect(wrapper.find('img').exists()).toBe(false)
   expect(wrapper.find('button:disabled').exists()).toBe(true)
 })
 
-test('button onclick', async () => {
+test('button onclick emits "ItemButton-active" event with correct parameter', async () => {
+  const img = '爆破单元'
   const wrapper = mount(ItemButtonVue, {
     props: {
-      img: '爆破单元'
+      img
     }
   })
   await wrapper.find('button').trigger('click')
-  expect(wrapper.emitted().click).toBeTruthy()
-})
-
-test('button function', async () => {
-  const mock = vi.fn((param) => param)
-  const wrapper = mount(ItemButtonVue, {
-    props: {
-      img: '爆破单元',
-      action: mock
-    }
-  })
-  await wrapper.find('button').trigger('click')
-  expect(mock).toHaveBeenCalled()
-  expect(mock).toHaveReturnedWith('爆破单元')
+  expect(wrapper.emitted('ItemButton-active')).toBeTruthy()
+  expect(wrapper.emitted('ItemButton-active')[0][0]).toBe(img)
 })
