@@ -1,9 +1,8 @@
 <script setup>
 import { usePanelStore } from '@/stores/panel'
-import { ref, computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import ItemButton from '@/components/ItemButton.vue'
-import ItemRadioSelect from '@/components/ItemRadioSelect.vue'
+import ItemRadioGroup from '@/components/ItemRadioGroup.vue'
 
 const panelStore = usePanelStore()
 
@@ -26,7 +25,7 @@ const {
     <ItemButton :img="selectedItem" />
   </div>
   <div>
-    <ItemRadioSelect :list="appliedSchemas" />
+    <ItemRadioGroup :list="appliedSchemas" />
   </div>
 </template>
 

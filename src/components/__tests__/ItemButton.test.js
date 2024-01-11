@@ -23,7 +23,7 @@ test('button disabled and img not rendered when props.img empty', async () => {
   expect(wrapper.find('button:disabled').exists()).toBe(true)
 })
 
-test('button onclick emits "ItemButton-active" event with correct parameter', async () => {
+test('button onclick emits "item-button-active" event with correct parameter', async () => {
   const img = '爆破单元'
   const wrapper = mount(ItemButtonVue, {
     props: {
@@ -31,6 +31,15 @@ test('button onclick emits "ItemButton-active" event with correct parameter', as
     }
   })
   await wrapper.find('button').trigger('click')
-  expect(wrapper.emitted('ItemButton-active')).toBeTruthy()
-  expect(wrapper.emitted('ItemButton-active')[0][0]).toBe(img)
+  expect(wrapper.emitted('item-button-active')).toBeTruthy()
+  expect(wrapper.emitted('item-button-active')[0][0]).toBe(img)
+})
+
+test('button class at selected with given props.selected', async () => {
+  const wrapper = mount(ItemButtonVue, {
+    props: {
+      selected: true
+    }
+  })
+  expect(wrapper.find('button').classes()).toContain('selected')
 })
