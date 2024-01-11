@@ -1,14 +1,11 @@
 <script setup>
 import ItemButton from './ItemButton.vue'
 import { usePanelStore } from '@/stores/panel'
+import { watch } from 'vue'
 
 defineProps({
   list: {
     type: Array,
-    required: true
-  },
-  state: {
-    type: ref,
     required: true
   },
   action: {
