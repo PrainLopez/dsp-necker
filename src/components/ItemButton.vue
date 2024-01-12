@@ -20,14 +20,14 @@ function clickHandler() {
 <template>
   <button
     :class="selected ? 'selected' : 'unselected'"
-    :disabled="!img"
-    :title="img ?? ''"
+    :disabled="!props.img"
+    :title="props.img ?? ''"
     @click="clickHandler"
   >
     <img
-      v-if="img"
-      :src="`src/assets/dsp-icon/${img}.webp`"
-      :alt="img"
+      v-if="props.img"
+      :src="`src/assets/dsp-icon/${props.img}.webp`"
+      :alt="props.img"
       width="40px"
       height="40px"
     />
