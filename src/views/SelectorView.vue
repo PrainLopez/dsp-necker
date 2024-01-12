@@ -16,11 +16,19 @@ const panelStore = usePanelStore()
       <ItemButton
         v-for="grid in row"
         :key="grid.id"
-        :img="grid"
+        :title="grid"
         @item-button-active="
           (item) => (panelStore.selectedItem = item)
         "
-      />
+      >
+        <img
+          v-if="grid"
+          :src="`src/assets/dsp-icon/${grid}.webp`"
+          :alt="grid"
+          width="40px"
+          height="40px"
+        />
+      </ItemButton>
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps({
-  img: {
+  title: {
     type: String,
     required: false
   },
@@ -13,30 +13,24 @@ const props = defineProps({
 const emit = defineEmits(['item-button-active'])
 
 function clickHandler() {
-  emit('item-button-active', props.img)
+  emit('item-button-active', props.title)
 }
 </script>
 
 <template>
   <button
     :class="selected ? 'selected' : 'unselected'"
-    :disabled="!props.img"
-    :title="props.img ?? ''"
+    :disabled="!props.title"
+    :title="props.title ?? ''"
     @click="clickHandler"
   >
-    <img
-      v-if="props.img"
-      :src="`src/assets/dsp-icon/${props.img}.webp`"
-      :alt="props.img"
-      width="40px"
-      height="40px"
-    />
+    <slot></slot>
   </button>
 </template>
 
 <style scoped>
 button {
-  width: 50px;
+  min-width: 50px;
   height: 50px;
   background-color: #364450;
   padding: 5px;

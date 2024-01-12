@@ -24,7 +24,7 @@ watch(
 
 <template>
   <div>
-    <ItemButton v-for="item of list" :key="item.id" :img="item" />
+    <ItemButton v-for="item of list" :key="item.id" :title="item" />
   </div>
 </template>
 

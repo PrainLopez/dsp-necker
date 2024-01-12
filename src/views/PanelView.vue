@@ -22,7 +22,15 @@ const {
 
 <template>
   <div>
-    <ItemButton :img="selectedItem" />
+    <ItemButton title="选择产物">
+      <img
+        v-if="selectedItem"
+        :src="`src/assets/dsp-icon/${selectedItem}.webp`"
+        :alt="selectedItem"
+        width="40px"
+        height="40px"
+      />
+    </ItemButton>
   </div>
   <div>
     <ItemRadioGroup :list="appliedSchemas" />

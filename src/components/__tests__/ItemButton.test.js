@@ -3,36 +3,32 @@ import ItemButtonVue from '../ItemButton.vue'
 import { test, vi } from 'vitest'
 import { expect } from 'vitest'
 
-test('render the image correctly when given image name', async () => {
+test('render the image correctly when given img into slot', async () => {
   const wrapper = mount(ItemButtonVue, {
-    props: {
-      img: '爆破单元'
+    slots: {
+      default: '<img src="src/test.webp" />'
     }
   })
   expect(wrapper.find('img').exists()).toBe(true)
-  expect(wrapper.find('img').attributes('src')).toBe(
-    'src/assets/dsp-icon/爆破单元.webp'
-  )
-  expect(wrapper.find('img').attributes('alt')).toBe('爆破单元')
-  expect(wrapper.find('img').attributes('width')).toBe('40px')
+  expect(wrapper.find('img').attributes('src')).toBe('src/test.webp')
 })
 
-test('button disabled and img not rendered when props.img empty', async () => {
+test('button disabled and title not rendered when props.title empty', async () => {
   const wrapper = mount(ItemButtonVue, {})
-  expect(wrapper.find('img').exists()).toBe(false)
+  expect(wrapper.find('title').exists()).toBe(false)
   expect(wrapper.find('button:disabled').exists()).toBe(true)
 })
 
 test('button onclick emits "item-button-active" event with correct parameter', async () => {
-  const img = '爆破单元'
+  const title = '爆破单元'
   const wrapper = mount(ItemButtonVue, {
     props: {
-      img
+      title
     }
   })
   await wrapper.find('button').trigger('click')
   expect(wrapper.emitted('item-button-active')).toBeTruthy()
-  expect(wrapper.emitted('item-button-active')[0][0]).toBe(img)
+  expect(wrapper.emitted('item-button-active')[0][0]).toBe(title)
 })
 
 test('button class at selected with given props.selected', async () => {
