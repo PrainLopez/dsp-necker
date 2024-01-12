@@ -3,6 +3,7 @@ import { usePanelStore } from '@/stores/panel'
 import { storeToRefs } from 'pinia'
 import ItemButton from '@/components/ItemButton.vue'
 import ItemRadioGroup from '@/components/ItemRadioGroup.vue'
+import SchemaBox from '@/components/SchemaBox.vue'
 
 const panelStore = usePanelStore()
 
@@ -16,7 +17,9 @@ const {
   proliferatorAction,
   proliferatorSelection,
   // getters
-  appliedSchemas
+  appliedSchemas,
+  appliedFacilities,
+  appliedProliferators
 } = storeToRefs(panelStore)
 </script>
 
@@ -33,7 +36,13 @@ const {
     </ItemButton>
   </div>
   <div>
-    <ItemRadioGroup :list="appliedSchemas" />
+    <ItemButton
+      v-for="schema in appliedSchemas"
+      :key="schema.id"
+      :title="schema.设施"
+    >
+      <SchemaBox :schema="schema" />
+    </ItemButton>
   </div>
 </template>
 

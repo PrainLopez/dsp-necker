@@ -2,7 +2,7 @@
 const props = defineProps({
   title: {
     type: String,
-    required: false
+    required: true
   },
   selected: {
     type: Boolean,
