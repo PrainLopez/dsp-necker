@@ -27,23 +27,32 @@ const normaSchemaFacilities = [
     />
     <span class="schema-arrow">
       ⟶
-      <span class="number">{{ `${schema.时间} s` }}</span>
+      <span class="arrow-number">{{ `${schema.时间} s` }}</span>
     </span>
+  </span>
+  <span>
+    <ItemWithNum
+      v-for="[material, amount] in Object.entries(schema.产物)"
+      :key="material"
+      :item="[material, amount]"
+    />
   </span>
 </template>
 
 <style scoped>
 .schema-arrow {
-  font-size: 32px;
+  font-size: 2.5rem;
   color: whitesmoke;
   position: relative;
-  margin: 0 5px;
+  line-height: 25px;
 }
-.number {
-  font-size: 15px;
-  position: relative;
+.arrow-number {
+  font-size: 0.9rem;
+  position: absolute;
   text-align: center;
   width: 100%;
   margin: 0 5px;
+  right: 0;
+  top: 3px;
 }
 </style>

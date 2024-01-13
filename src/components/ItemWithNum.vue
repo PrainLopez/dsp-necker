@@ -8,22 +8,26 @@ const props = defineProps({
 </script>
 
 <template>
-  <span>
+  <span style="position: relative">
     <img
       :src="`src/assets/dsp-icon/${props.item[0]}.webp`"
       :alt="props.item[0]"
     />
-    <span>{{ props.item[1] }}</span>
+    <span class="amount-number">{{ props.item[1] }}</span>
   </span>
 </template>
 
 <style scoped>
 img {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
+  margin: 0 0.3rem;
 }
-span {
-  font-size: 12px;
+.amount-number {
+  font-size: 0.9rem;
   color: whitesmoke;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 </style>

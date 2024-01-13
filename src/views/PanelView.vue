@@ -40,6 +40,8 @@ const {
       v-for="schema in appliedSchemas"
       :key="schema.id"
       :title="schema.设施"
+      :selected="schema === selectedSchema"
+      @item-button-active="selectedSchema = schema"
     >
       <SchemaBox :schema="schema" />
     </ItemButton>
