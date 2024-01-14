@@ -13,7 +13,7 @@ const {
   selectedSchema,
   selectedUnit,
   inputAmount,
-  facilitySelection,
+  selectedFacility,
   proliferatorAction,
   proliferatorSelection,
   // getters

@@ -22,7 +22,10 @@ export const usePanelStore = defineStore('panel', () => {
   const appliedFacilities = computed(
     () => facilities[selectedSchema.value.设施] // fixme
   )
-  const facilitySelection = ref(appliedFacilities.value[0])
+  const selectedFacility = ref(appliedFacilities.value[0])
+  watch(appliedFacilities, (newValue) => {
+    selectedFacility.value = newValue[0]
+  })
 
   const appliedProliferators = computed(
     () => proliferators.proliferator_data
@@ -36,7 +39,7 @@ export const usePanelStore = defineStore('panel', () => {
     selectedSchema,
     selectedUnit,
     inputAmount,
-    facilitySelection,
+    selectedFacility,
     proliferatorAction,
     proliferatorSelection,
     // getters
