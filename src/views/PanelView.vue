@@ -2,7 +2,6 @@
 import { usePanelStore } from '@/stores/panel'
 import { storeToRefs } from 'pinia'
 import ItemButton from '@/components/ItemButton.vue'
-import ItemRadioGroup from '@/components/ItemRadioGroup.vue'
 import SchemaBox from '@/components/SchemaBox.vue'
 
 const panelStore = usePanelStore()

@@ -8,7 +8,7 @@ const props = defineProps({
   }
 })
 
-const normaSchemaFacilities = [
+const normalSchemaFacilities = [
   '冶炼设备',
   '制造台',
   '精炼设备',
@@ -19,7 +19,7 @@ const normaSchemaFacilities = [
 </script>
 
 <template>
-  <span v-if="normaSchemaFacilities.includes(props.schema.设施)">
+  <span v-if="normalSchemaFacilities.includes(props.schema.设施)">
     <ItemWithNum
       v-for="[material, amount] in Object.entries(schema.原料)"
       :key="material"
@@ -29,6 +29,10 @@ const normaSchemaFacilities = [
       ⟶
       <span class="arrow-number">{{ `${schema.时间} s` }}</span>
     </span>
+  </span>
+  <span v-else-if="props.schema.设施 === '轻型工业机甲'">
+    <!-- FIXME: need more asset here -->
+    <!-- <img src="src\assets\dsp-icon\护卫舰.webp" alt="轻型工业机甲" /> -->
   </span>
   <span>
     <ItemWithNum
