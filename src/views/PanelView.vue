@@ -37,11 +37,11 @@ const {
   </div>
   <div>
     <ItemButton
-      v-for="schema in appliedSchemas"
-      :key="schema.id"
+      v-for="(schema, index) in appliedSchemas"
+      :key="index"
       :title="schema.设施"
-      :selected="schema === selectedSchema"
-      @item-button-active="selectedSchema = schema"
+      :selected="index === selectedSchema"
+      @item-button-active="selectedSchema = index"
     >
       <SchemaBox :schema="schema" />
     </ItemButton>

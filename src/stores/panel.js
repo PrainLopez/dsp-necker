@@ -14,17 +14,17 @@ export const usePanelStore = defineStore('panel', () => {
       Object.keys(it.产物).includes(selectedItem.value)
     )
   )
-  const selectedSchema = ref(appliedSchemas.value[0])
-  watch(appliedSchemas, (newValue) => {
-    selectedSchema.value = newValue[0]
+  const selectedSchema = ref(0)
+  watch(appliedSchemas, () => {
+    selectedSchema.value = 0
   })
 
   const appliedFacilities = computed(
-    () => facilities[selectedSchema.value.设施] // fixme
+    () => facilities[selectedSchema.value.设施]
   )
-  const selectedFacility = ref(appliedFacilities.value[0])
-  watch(appliedFacilities, (newValue) => {
-    selectedFacility.value = newValue[0]
+  const selectedFacility = ref(0)
+  watch(appliedFacilities, () => {
+    selectedFacility.value = 0
   })
 
   const appliedProliferators = computed(
