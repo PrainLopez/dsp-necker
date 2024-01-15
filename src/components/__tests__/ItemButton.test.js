@@ -3,7 +3,7 @@ import ItemButtonVue from '../ItemButton.vue'
 import { test, vi } from 'vitest'
 import { expect } from 'vitest'
 
-test('render the image correctly when given img into slot', async () => {
+test('render the image correctly when given img into slot', () => {
   const wrapper = mount(ItemButtonVue, {
     slots: {
       default: '<img src="src/test.webp" />'
@@ -13,7 +13,7 @@ test('render the image correctly when given img into slot', async () => {
   expect(wrapper.find('img').attributes('src')).toBe('src/test.webp')
 })
 
-test('button disabled and title not rendered when props.title empty', async () => {
+test('button disabled and title not rendered when props.title empty', () => {
   const wrapper = mount(ItemButtonVue, {})
   expect(wrapper.find('title').exists()).toBe(false)
   expect(wrapper.find('button:disabled').exists()).toBe(true)
