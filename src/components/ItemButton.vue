@@ -31,7 +31,7 @@ function clickHandler() {
 <style scoped>
 button {
   min-width: 50px;
-  height: 50px;
+  max-height: 50px;
   background-color: #364450;
   padding: 5px;
   border: none;

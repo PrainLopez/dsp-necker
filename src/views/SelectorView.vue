@@ -28,6 +28,12 @@ const panelStore = usePanelStore()
           width="40px"
           height="40px"
         />
+        <div
+          v-else
+          height="40px"
+          width="40px"
+          display="inline-block"
+        ></div>
       </ItemButton>
     </div>
   </div>
@@ -35,11 +41,13 @@ const panelStore = usePanelStore()
 
 <style scoped>
 div.selectorRow {
-  width: calc(14 * 52px);
+  display: grid;
+  grid-auto-flow: column;
 }
 
 div.selectorCanvas {
-  width: calc(14 * 52px);
-  height: calc(9 * 52px);
+  max-width: 728px;
+  display: grid;
+  grid-template-rows: repeat(9, 1fr);
 }
 </style>

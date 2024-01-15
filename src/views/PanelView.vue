@@ -23,28 +23,44 @@ const {
 </script>
 
 <template>
-  <div>
-    <ItemButton title="选择产物">
-      <img
-        v-if="selectedItem"
-        :src="`src/assets/dsp-icon/${selectedItem}.webp`"
-        :alt="selectedItem"
-        width="40px"
-        height="40px"
-      />
-    </ItemButton>
-  </div>
-  <div>
-    <ItemButton
-      v-for="(schema, index) in appliedSchemas"
-      :key="index"
-      :title="schema.设施"
-      :selected="index === selectedSchema"
-      @item-button-active="selectedSchema = index"
-    >
-      <SchemaBox :schema="schema" />
-    </ItemButton>
+  <div class="panel-container">
+    <div class="panel-section">
+      <ItemButton title="选择产物">
+        <img
+          v-if="selectedItem"
+          :src="`src/assets/dsp-icon/${selectedItem}.webp`"
+          :alt="selectedItem"
+          width="40px"
+          height="40px"
+        />
+      </ItemButton>
+    </div>
+    <div class="panel-section">
+      <ItemButton
+        v-for="(schema, index) in appliedSchemas"
+        :key="index"
+        :title="schema.设施"
+        :selected="index === selectedSchema"
+        @item-button-active="selectedSchema = index"
+      >
+        <SchemaBox :schema="schema" />
+      </ItemButton>
+    </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.panel-container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  height: 100px;
+}
+
+.panel-section {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+</style>
