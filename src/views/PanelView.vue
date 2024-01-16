@@ -13,7 +13,7 @@ const {
   selectedUnit,
   inputAmount,
   selectedFacility,
-  proliferatorAction,
+  proliferatorOption,
   proliferatorSelection,
   // getters
   appliedSchemas,
@@ -40,7 +40,7 @@ const {
         v-for="(schema, index) in appliedSchemas"
         :key="index"
         :title="schema.设施"
-        :selected="index === selectedSchema"
+        :class="index === selectedSchema ? 'selected' : ''"
         @item-button-active="selectedSchema = index"
       >
         <SchemaBox :schema="schema" />

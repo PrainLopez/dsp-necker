@@ -3,10 +3,6 @@ const props = defineProps({
   title: {
     type: String,
     required: true
-  },
-  selected: {
-    type: Boolean,
-    required: false
   }
 })
 
@@ -19,7 +15,6 @@ function clickHandler() {
 
 <template>
   <button
-    :class="selected ? 'selected' : 'unselected'"
     :disabled="!props.title"
     :title="props.title ?? ''"
     @click="clickHandler"
@@ -38,11 +33,11 @@ button {
   margin: 1px;
 }
 
-button.unselected:enabled:hover {
+button:where(:enabled:hover) {
   background: linear-gradient(-45deg, #364450 5px, #326b77 0);
 }
 
-button.unselected:enabled:active,
+button:enabled:active,
 button.selected {
   outline: 2px solid #a5f1ff;
   border-radius: 1px;

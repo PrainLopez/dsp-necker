@@ -30,12 +30,3 @@ test('button onclick emits "item-button-active" event with correct parameter', a
   expect(wrapper.emitted('item-button-active')).toBeTruthy()
   expect(wrapper.emitted('item-button-active')[0][0]).toBe(title)
 })
-
-test('button class at selected with given props.selected', async () => {
-  const wrapper = mount(ItemButtonVue, {
-    props: {
-      selected: true
-    }
-  })
-  expect(wrapper.find('button').classes()).toContain('selected')
-})
