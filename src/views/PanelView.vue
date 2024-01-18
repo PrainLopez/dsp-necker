@@ -3,6 +3,7 @@ import { usePanelStore } from '@/stores/panel'
 import { storeToRefs } from 'pinia'
 import ItemButton from '@/components/ItemButton.vue'
 import SchemaBox from '@/components/SchemaBox.vue'
+import InputBox from '@/components/InputBox.vue'
 
 const panelStore = usePanelStore()
 
@@ -47,6 +48,7 @@ const {
       </ItemButton>
     </span>
     <span class="panel-section-vertical" flex-flow="column">
+      <InputBox />
       <ItemButton
         title="选择产量"
         :class="'每分钟产量' === selectedUnit ? 'selected' : ''"
