@@ -24,7 +24,7 @@ const {
 
 <template>
   <div class="panel-container">
-    <div class="panel-section">
+    <span class="panel-section-horizontal">
       <ItemButton title="选择产物">
         <img
           v-if="selectedItem"
@@ -34,8 +34,8 @@ const {
           height="40px"
         />
       </ItemButton>
-    </div>
-    <div class="panel-section">
+    </span>
+    <span class="panel-section-horizontal">
       <ItemButton
         v-for="(schema, index) in appliedSchemas"
         :key="index"
@@ -45,22 +45,51 @@ const {
       >
         <SchemaBox :schema="schema" />
       </ItemButton>
-    </div>
+    </span>
+    <span class="panel-section-vertical" flex-flow="column">
+      <ItemButton
+        title="选择产量"
+        :class="'每分钟产量' === selectedUnit ? 'selected' : ''"
+        @item-button-active="selectedUnit = '每分钟产量'"
+      >
+        <span class="text">每分钟产量</span>
+      </ItemButton>
+      <ItemButton
+        title="选择产量"
+        :class="'设备数量' === selectedUnit ? 'selected' : ''"
+        @item-button-active="selectedUnit = '设备数量'"
+      >
+        <span class="text">设备数量</span>
+      </ItemButton>
+    </span>
   </div>
 </template>
 
 <style scoped>
 .panel-container {
   display: grid;
-  grid-template-columns: 1fr 4fr;
-  height: 100px;
+  grid-template-columns: 1fr 9fr 2fr;
+  min-height: 100px;
 }
 
-.panel-section {
+.panel-section-horizontal {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   align-content: center;
+}
+
+.panel-section-vertical {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+span.text {
+  color: whitesmoke;
+  font-size: 1rem;
+  margin: 0 0.3rem;
 }
 </style>
