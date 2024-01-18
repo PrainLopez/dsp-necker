@@ -1,8 +1,12 @@
 <script setup>
 const props = defineProps({
   item: {
-    type: Array, // ["铁块", 1]
+    type: String,
     required: true
+  },
+  num: {
+    type: Number,
+    default: 0
   }
 })
 </script>
@@ -10,10 +14,12 @@ const props = defineProps({
 <template>
   <span style="position: relative">
     <img
-      :src="`src/assets/dsp-icon/${props.item[0]}.webp`"
-      :alt="props.item[0]"
+      :src="`src/assets/dsp-icon/${props.item}.webp`"
+      :alt="props.item"
     />
-    <span class="amount-number">{{ props.item[1] }}</span>
+    <span v-if="props.num > 0" class="amount-number">{{
+      props.num
+    }}</span>
   </span>
 </template>
 
@@ -21,7 +27,7 @@ const props = defineProps({
 img {
   width: 35px;
   height: 35px;
-  margin: 0 0.3rem;
+  margin: 0 0.2rem;
 }
 .amount-number {
   font-size: 0.9rem;

@@ -35,21 +35,19 @@ const schemaProperty = ref(SchemaFacilityClass[props.schema.设施])
     <ItemWithNum
       v-for="[material, amount] in Object.entries(schema.原料)"
       :key="material"
-      :item="[material, amount]"
+      :item="material"
+      :num="amount"
     />
   </span>
   <span v-else-if="props.schema.设施 === '分馏塔'">
-    <img :src="'src/assets/dsp-icon/分馏塔.webp'" alt="分馏设备" />
+    <ItemWithNum item="分馏塔" />
   </span>
   <span v-else-if="props.schema.设施 === '能量枢纽'">
-    <img :src="'src/assets/dsp-icon/能量枢纽.webp'" alt="充电设备" />
+    <ItemWithNum item="能量枢纽" />
   </span>
   <span v-else>
     <!-- FIXME: need more asset for 轻型工业机甲.webp -->
-    <img
-      :src="`src/assets/dsp-icon/${schemaProperty}.webp`"
-      :alt="schema.设施"
-    />
+    <ItemWithNum :item="schemaProperty" />
   </span>
 
   <span class="schema-arrow">
@@ -64,7 +62,8 @@ const schemaProperty = ref(SchemaFacilityClass[props.schema.设施])
     <ItemWithNum
       v-for="[material, amount] in Object.entries(schema.产物)"
       :key="material"
-      :item="[material, amount]"
+      :item="material"
+      :num="amount"
     />
   </span>
 </template>
@@ -84,11 +83,5 @@ const schemaProperty = ref(SchemaFacilityClass[props.schema.设施])
   margin: 0 5px;
   right: 0;
   top: 3px;
-}
-
-img {
-  width: 35px;
-  height: 35px;
-  margin: 0 0.3rem;
 }
 </style>
