@@ -48,7 +48,7 @@ const {
       </ItemButton>
     </span>
     <span class="panel-section-vertical" flex-flow="column">
-      <InputBox />
+      <InputBox v-model="inputAmount" :unit="selectedUnit" />
       <ItemButton
         title="选择产量"
         :class="'每分钟产量' === selectedUnit ? 'selected' : ''"
