@@ -24,7 +24,7 @@ const {
 </script>
 
 <template>
-  <div class="panel-container">
+  <div class="panel-container container-first-row">
     <span class="panel-section-horizontal">
       <ItemButton title="选择产物">
         <img
@@ -65,13 +65,58 @@ const {
       </ItemButton>
     </span>
   </div>
+  <div class="panel-container container-second-row">
+    <span class="panel-section-horizontal">
+      <ItemButton
+        v-for="(facility, index) in appliedFacilities"
+        :key="index"
+        :title="facility.名称"
+        :class="index === selectedFacility ? 'selected' : ''"
+        @item-button-active="selectedFacility = index"
+      >
+        <img
+          v-if="facility"
+          :src="`src/assets/dsp-icon/${facility.名称}.webp`"
+          :alt="facility.名称"
+          width="40px"
+          height="40px"
+        />
+      </ItemButton>
+    </span>
+    <span class="panel-section-horizontal">
+      <ItemButton
+        v-for="(proliferator, index) in appliedProliferators"
+        :key="index"
+        :title="proliferator.增产剂名称"
+        :class="index === proliferatorSelection ? 'selected' : ''"
+        @item-button-active="proliferatorSelection = index"
+      >
+        <img
+          v-if="proliferator.增产剂名称 !== '不使用增产剂'"
+          :src="`src/assets/dsp-icon/${proliferator.增产剂名称}.webp`"
+          :alt="proliferator.增产剂名称"
+          width="40px"
+          height="40px"
+        />
+        <span v-else height="40px" width="40px"></span>
+      </ItemButton>
+    </span>
+  </div>
 </template>
 
 <style scoped>
 .panel-container {
   display: grid;
-  grid-template-columns: 1fr 9fr 2fr;
   min-height: 100px;
+  margin: 1rem;
+}
+
+.container-first-row {
+  grid-template-columns: 1fr 9fr 2fr;
+}
+
+.container-second-row {
+  grid-template-columns: 4fr 3fr 1fr;
 }
 
 .panel-section-horizontal {

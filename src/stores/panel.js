@@ -27,11 +27,9 @@ export const usePanelStore = defineStore('panel', () => {
     selectedFacility.value = 0
   })
 
-  const appliedProliferators = computed(
-    () => proliferators.proliferator_data
-  )
+  const appliedProliferators = ref(proliferators.proliferator_data)
   const proliferatorOption = ref('增产')
-  const proliferatorSelection = ref(appliedProliferators.value[0])
+  const proliferatorSelection = ref(0)
 
   return {
     // states
@@ -42,10 +40,10 @@ export const usePanelStore = defineStore('panel', () => {
     selectedFacility,
     proliferatorOption,
     proliferatorSelection,
+    appliedProliferators,
     // getters
     appliedSchemas,
-    appliedFacilities,
-    appliedProliferators
+    appliedFacilities
     // actions
   }
 })
