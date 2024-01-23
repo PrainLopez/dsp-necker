@@ -7,8 +7,8 @@ const props = defineProps({
     required: true
   }
 })
-const amount = defineModel()
-amount.value = 60
+const amount = defineModel({ type: Number, default: 60 })
+
 const selected = ref(false)
 
 const enableScroll = () => {
@@ -22,8 +22,10 @@ const disableScroll = () => {
 const numScroll = (event) => {
   if (selected.value) {
     const scale = event.deltaY > 0 ? -1 : 1
+    // deprecated method for DOM manipulation conflit
     // amount.value += scale * (props.unit === 'perminute' ? 30 : 1)
     // if (amount.value < 0) {
+    //   await nextTick() //needed for DOM manipulation conflit
     //   amount.value = 0
     // }
     const newValue =
