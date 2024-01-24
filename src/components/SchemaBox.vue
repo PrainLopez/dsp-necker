@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import ItemWithNum from './ItemWithNum.vue'
+import { Icon } from '@iconify/vue'
 
 const props = defineProps({
   schema: {
@@ -45,8 +46,16 @@ const schemaProperty = ref(SchemaFacilityClass[props.schema.设施])
   <span v-else-if="props.schema.设施 === '能量枢纽'">
     <ItemWithNum item="能量枢纽" />
   </span>
+  <span v-else-if="props.schema.设施 === '轻型工业机甲'">
+    <Icon
+      icon="game-icons:drill"
+      color="whitesmoke"
+      width="35"
+      height="35"
+      :rotate="1"
+    />
+  </span>
   <span v-else>
-    <!-- FIXME: need more asset for 轻型工业机甲.webp -->
     <ItemWithNum :item="schemaProperty" />
   </span>
 
@@ -77,6 +86,7 @@ const schemaProperty = ref(SchemaFacilityClass[props.schema.设施])
 }
 .arrow-number {
   font-size: 0.9rem;
+  color: whitesmoke;
   position: absolute;
   text-align: center;
   width: 100%;

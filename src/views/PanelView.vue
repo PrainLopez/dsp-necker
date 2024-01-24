@@ -4,6 +4,7 @@ import { storeToRefs } from 'pinia'
 import ItemButton from '@/components/ItemButton.vue'
 import SchemaBox from '@/components/SchemaBox.vue'
 import InputBox from '@/components/InputBox.vue'
+import { Icon } from '@iconify/vue'
 
 const panelStore = usePanelStore()
 
@@ -25,6 +26,7 @@ const {
 
 <template>
   <div class="panel-container container-first-row">
+    <!-- 产物选择 -->
     <span class="panel-section-horizontal">
       <ItemButton title="选择产物">
         <img
@@ -36,6 +38,7 @@ const {
         />
       </ItemButton>
     </span>
+    <!-- 公式选择 -->
     <span class="panel-section-horizontal">
       <ItemButton
         v-for="(schema, index) in appliedSchemas"
@@ -47,6 +50,7 @@ const {
         <SchemaBox :schema="schema" />
       </ItemButton>
     </span>
+    <!-- 产线规模输入框 -->
     <span class="panel-section-vertical" flex-flow="column">
       <InputBox v-model="inputAmount" :unit="selectedUnit" />
       <ItemButton
@@ -66,6 +70,7 @@ const {
     </span>
   </div>
   <div class="panel-container container-second-row">
+    <!-- 生产设施 -->
     <span class="panel-section-horizontal">
       <ItemButton
         v-for="(facility, index) in appliedFacilities"
@@ -74,15 +79,24 @@ const {
         :class="index === selectedFacility ? 'selected' : ''"
         @item-button-active="selectedFacility = index"
       >
+        <Icon
+          v-if="facility.名称 === '伊卡洛斯'"
+          icon="game-icons:drill"
+          color="whitesmoke"
+          width="40"
+          height="40"
+          :rotate="1"
+        />
         <img
-          v-if="facility"
-          :src="`src/assets/dsp-icon/${facility.名称}.webp`"
+          v-else
+          :src="`/src/assets/dsp-icon/${facility.名称}.webp`"
           :alt="facility.名称"
           width="40px"
           height="40px"
         />
       </ItemButton>
     </span>
+    <!-- 增产剂种类 -->
     <span class="panel-section-horizontal">
       <ItemButton
         v-for="(proliferator, index) in appliedProliferators"
@@ -93,14 +107,22 @@ const {
       >
         <img
           v-if="proliferator.增产剂名称 !== '不使用增产剂'"
-          :src="`src/assets/dsp-icon/${proliferator.增产剂名称}.webp`"
+          :src="`/src/assets/dsp-icon/${proliferator.增产剂名称}.webp`"
           :alt="proliferator.增产剂名称"
           width="40px"
           height="40px"
         />
-        <span v-else height="40px" width="40px"></span>
+        <Icon
+          v-else
+          icon="raphael:no"
+          color="#f33"
+          width="40"
+          height="40"
+          :rotate="1"
+        />
       </ItemButton>
     </span>
+    <!-- 增产剂操作 -->
   </div>
 </template>
 
@@ -116,7 +138,7 @@ const {
 }
 
 .container-second-row {
-  grid-template-columns: 4fr 3fr 1fr;
+  grid-template-columns: 3fr 3fr 1fr;
 }
 
 .panel-section-horizontal {

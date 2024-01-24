@@ -56,7 +56,10 @@ input {
   width: 100px;
   font-size: 1rem;
   margin-bottom: 0.2rem;
+  border: none;
   padding: 1px 7px;
+  background-color: #326b77;
+  color: whitesmoke;
 }
 
 input:focus {
