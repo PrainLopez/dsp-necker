@@ -5,6 +5,7 @@ import ItemButton from '@/components/ItemButton.vue'
 import SchemaBox from '@/components/SchemaBox.vue'
 import InputBox from '@/components/InputBox.vue'
 import { Icon } from '@iconify/vue'
+import ProliferatorSwitch from '@/components/ProliferatorSwitch.vue'
 
 const panelStore = usePanelStore()
 
@@ -123,6 +124,17 @@ const {
       </ItemButton>
     </span>
     <!-- 增产剂操作 -->
+    <span class="panel-section-vertical">
+      <ProliferatorSwitch v-model="proliferatorOption" />
+      <span
+        v-if="proliferatorOption"
+        class="text"
+        style="color: #ffb477"
+      >
+        增产
+      </span>
+      <span v-else class="text" style="color: #a5f1ff"> 加速 </span>
+    </span>
   </div>
 </template>
 
@@ -156,9 +168,10 @@ const {
   align-content: center;
 }
 
-span.text {
+.text {
   color: whitesmoke;
   font-size: 1rem;
   margin: 0 0.3rem;
+  text-align: center;
 }
 </style>
