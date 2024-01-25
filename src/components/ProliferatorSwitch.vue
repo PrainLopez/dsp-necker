@@ -3,11 +3,17 @@ const cheked = defineModel({ type: Boolean, default: true })
 </script>
 
 <template>
-  <div>
-    <label class="switch">
-      <input type="checkbox" v-model="cheked" />
-      <div class="slider round"></div>
-    </label>
+  <div class="panel-section-vertical">
+    <span>
+      <label class="switch">
+        <input type="checkbox" v-model="cheked" />
+        <div class="slider round"></div>
+      </label>
+    </span>
+    <span v-if="cheked" class="text" style="color: #ffb477">
+      增产
+    </span>
+    <span v-else class="text" style="color: #a5f1ff"> 加速 </span>
   </div>
 </template>
 
@@ -68,5 +74,19 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.panel-section-vertical {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.text {
+  color: whitesmoke;
+  font-size: 1rem;
+  margin: 0 0.3rem;
+  text-align: center;
 }
 </style>

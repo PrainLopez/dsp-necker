@@ -126,14 +126,6 @@ const {
     <!-- 增产剂操作 -->
     <span class="panel-section-vertical">
       <ProliferatorSwitch v-model="proliferatorOption" />
-      <span
-        v-if="proliferatorOption"
-        class="text"
-        style="color: #ffb477"
-      >
-        增产
-      </span>
-      <span v-else class="text" style="color: #a5f1ff"> 加速 </span>
     </span>
   </div>
 </template>
