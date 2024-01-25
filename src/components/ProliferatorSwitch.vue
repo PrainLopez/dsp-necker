@@ -1,19 +1,21 @@
 <script setup>
-const cheked = defineModel({ type: Boolean, default: true })
+const option = defineModel({ type: Boolean, required: true })
 </script>
 
 <template>
   <div class="panel-section-vertical">
     <span>
       <label class="switch">
-        <input type="checkbox" v-model="cheked" />
+        <input type="checkbox" v-model="option" />
         <div class="slider round"></div>
       </label>
     </span>
-    <span v-if="cheked" class="text" style="color: #ffb477">
+    <span v-show="option" class="text" style="color: #ffb477">
       增产
     </span>
-    <span v-else class="text" style="color: #a5f1ff"> 加速 </span>
+    <span v-show="!option" class="text" style="color: #a5f1ff">
+      加速
+    </span>
   </div>
 </template>
 

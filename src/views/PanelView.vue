@@ -12,16 +12,17 @@ const panelStore = usePanelStore()
 const {
   // states
   selectedItem,
-  selectedSchema,
+  schemaSelector,
   selectedUnit,
   inputAmount,
-  selectedFacility,
+  facilitySelector,
+  proliferatorSelector,
+  appliedProliferators,
   proliferatorOption,
-  proliferatorSelection,
   // getters
   appliedSchemas,
   appliedFacilities,
-  appliedProliferators
+  appliedProliferatorOptions
 } = storeToRefs(panelStore)
 </script>
 
@@ -45,8 +46,8 @@ const {
         v-for="(schema, index) in appliedSchemas"
         :key="index"
         :title="schema.设施"
-        :class="index === selectedSchema ? 'selected' : ''"
-        @item-button-active="selectedSchema = index"
+        :class="index === schemaSelector ? 'selected' : ''"
+        @item-button-active="schemaSelector = index"
       >
         <SchemaBox :schema="schema" />
       </ItemButton>
@@ -77,7 +78,7 @@ const {
         v-for="(facility, index) in appliedFacilities"
         :key="index"
         :title="facility.名称"
-        :class="index === selectedFacility ? 'selected' : ''"
+        :class="index === facilitySelector ? 'selected' : ''"
         @item-button-active="selectedFacility = index"
       >
         <Icon
@@ -103,8 +104,8 @@ const {
         v-for="(proliferator, index) in appliedProliferators"
         :key="index"
         :title="proliferator.增产剂名称"
-        :class="index === proliferatorSelection ? 'selected' : ''"
-        @item-button-active="proliferatorSelection = index"
+        :class="index === proliferatorSelector ? 'selected' : ''"
+        @item-button-active="proliferatorSelector = index"
       >
         <img
           v-if="proliferator.增产剂名称 !== '不使用增产剂'"
