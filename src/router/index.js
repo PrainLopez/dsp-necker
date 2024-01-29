@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import PanelView from '../views/PanelView.vue'
+import SelectorView from '../views/SelectorView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -6,12 +8,12 @@ const router = createRouter({
     {
       path: '/selector',
       name: 'selector',
-      component: () => import('../views/SelectorView.vue')
+      component: SelectorView
     },
     {
       path: '/',
       name: 'panel',
-      component: () => import('../views/PanelView.vue')
+      component: PanelView
     }
   ]
 })

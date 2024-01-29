@@ -1,7 +1,6 @@
 import { mount } from '@vue/test-utils'
+import { test, expect } from 'vitest'
 import ItemButtonVue from '../ItemButton.vue'
-import { test, vi } from 'vitest'
-import { expect } from 'vitest'
 
 test('render the image correctly when given img into slot', () => {
   const wrapper = mount(ItemButtonVue, {

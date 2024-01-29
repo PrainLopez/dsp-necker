@@ -79,7 +79,7 @@ const {
         :key="index"
         :title="facility.名称"
         :class="index === facilitySelector ? 'selected' : ''"
-        @item-button-active="selectedFacility = index"
+        @item-button-active="facilitySelector = index"
       >
         <Icon
           v-if="facility.名称 === '伊卡洛斯'"

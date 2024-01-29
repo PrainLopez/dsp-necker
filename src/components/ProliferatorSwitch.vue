@@ -1,4 +1,10 @@
 <script setup>
+const props = defineProps({
+  disabled: {
+    type: Boolean,
+    default: false
+  }
+})
 const option = defineModel({ type: Boolean, required: true })
 </script>
 
@@ -6,14 +12,28 @@ const option = defineModel({ type: Boolean, required: true })
   <div class="panel-section-vertical">
     <span>
       <label class="switch">
-        <input type="checkbox" v-model="option" />
+        <input
+          type="checkbox"
+          v-model="option"
+          :disabled="props.disabled"
+        />
         <div class="slider round"></div>
       </label>
     </span>
-    <span v-show="option" class="text" style="color: #ffb477">
+    <span
+      v-show="option"
+      id="yield"
+      class="text"
+      style="color: #ffb477"
+    >
       增产
     </span>
-    <span v-show="!option" class="text" style="color: #a5f1ff">
+    <span
+      v-show="!option"
+      id="speed"
+      class="text"
+      style="color: #a5f1ff"
+    >
       加速
     </span>
   </div>
@@ -61,6 +81,11 @@ input:checked + .slider {
 
 input:focus + .slider {
   box-shadow: 0 0 1px #2196f3;
+}
+
+input:disabled + .slider {
+  cursor: pointer;
+  background-color: grey;
 }
 
 input:checked + .slider:before {
