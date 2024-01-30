@@ -1,21 +1,20 @@
 import { mount } from '@vue/test-utils'
 import { test } from 'vitest'
 import ProliferatorSwitchVue from '../ProliferatorSwitch.vue'
+import { expect } from 'vitest'
 
-test('render the proliferator options correctly', () => {
-  const wrapperSpeed = mount(ProliferatorSwitchVue, {
+test('clicking button should switch text', async () => {
+  const wrapper = mount(ProliferatorSwitchVue, {
     props: {
-      disabled: false,
-      option: true
+      modelValue: true,
+      'onUpdate:modelValue': (e) =>
+        wrapper.setProps({ modelValue: e })
     }
   })
-  expect(wrapperSpeed.find('span#speed').isVisible()).toBe(true)
-
-  // const wrapperYield = mount(ProliferatorSwitchVue, {
-  //   props: {
-  //     disabled: false,
-  //     option: false
-  //   }
-  // })
-  // expect(wrapperYield.find('span#yield').isVisible()).toBe(true)
+  expect(wrapper.find('span#yield').isVisible()).toBeTruthy()
+  expect(wrapper.find('span#speed').text()).toBeFalsy()
+  await wrapper.find('input').setValue(false)
+  expect(wrapper.emitted('update:modelValue')).toBeTruthy()
+  expect(wrapper.props('modelValue')).toBe(false)
+  expect(wrapper.find('span#yield').isVisible()).toBeTruthy()
 })
