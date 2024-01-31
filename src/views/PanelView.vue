@@ -126,7 +126,10 @@ const {
     </span>
     <!-- 增产剂操作 -->
     <span class="panel-section-vertical">
-      <ProliferatorSwitch v-model="proliferatorOption" />
+      <ProliferatorSwitch
+        v-model="proliferatorOption"
+        :options="appliedProliferatorOptions"
+      />
     </span>
   </div>
 </template>
