@@ -20,10 +20,18 @@ const option = defineModel({ type: Boolean, required: true })
         <div class="slider round"></div>
       </label>
     </span>
-    <span v-show="option && !props.disabled" id="yield" class="text">
+    <span
+      v-show="option && props.options.length"
+      id="yield"
+      class="text"
+    >
       增产
     </span>
-    <span v-show="!option && !props.disabled" id="speed" class="text">
+    <span
+      v-show="!option && props.options.length"
+      id="speed"
+      class="text"
+    >
       加速
     </span>
   </div>
