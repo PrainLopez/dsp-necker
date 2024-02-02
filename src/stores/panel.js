@@ -15,26 +15,34 @@ export const usePanelStore = defineStore('panel', () => {
     )
   )
   const schemaSelector = ref(0)
-  watch(appliedSchemas, () => {
-    schemaSelector.value = 0
-  })
+  watch(
+    appliedSchemas,
+    () => {
+      schemaSelector.value = 0
+    },
+    { deep: true }
+  )
   const selectedSchema = computed(
     () => appliedSchemas.value[schemaSelector.value]
   )
 
   const appliedFacilities = computed(
-    () => facilities[appliedSchemas.value[schemaSelector.value].设施]
+    () => facilities[selectedSchema.value.设施]
   )
   const facilitySelector = ref(0)
-  watch(appliedFacilities, () => {
-    facilitySelector.value = 0
-  })
+  watch(
+    appliedFacilities,
+    () => {
+      facilitySelector.value = 0
+    },
+    { deep: true }
+  )
 
   const appliedProliferators = ref(proliferators.proliferator_data)
   const proliferatorSelector = ref(0)
 
   const appliedProliferatorOptions = computed(() => {
-    let proliferatorOptions = []
+    const proliferatorOptions = []
     if (selectedSchema.value.加速) {
       proliferatorOptions.push('加速')
     }
@@ -45,9 +53,13 @@ export const usePanelStore = defineStore('panel', () => {
     return proliferatorOptions
   })
   const proliferatorOption = ref(true)
-  watch(appliedProliferatorOptions, () => {
-    proliferatorOption.value = true
-  })
+  watch(
+    appliedProliferatorOptions,
+    () => {
+      proliferatorOption.value = true
+    },
+    { deep: true }
+  )
 
   return {
     // states
@@ -62,7 +74,8 @@ export const usePanelStore = defineStore('panel', () => {
     // getters
     appliedSchemas,
     appliedFacilities,
-    appliedProliferatorOptions
+    appliedProliferatorOptions,
+    selectedSchema
     // actions
   }
 })
