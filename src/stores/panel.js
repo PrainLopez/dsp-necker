@@ -16,10 +16,13 @@ export const usePanelStore = defineStore('panel', () => {
   )
   const schemaSelector = ref(0)
   watch(
+    // This was originally appliedSchemas here,
+    // while the watcher here can't flush before computed() update of selecetdSchema
     appliedSchemas,
     () => {
       schemaSelector.value = 0
     },
+    // not needed for selectedItem
     { deep: true }
   )
   const selectedSchema = computed(
